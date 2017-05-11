@@ -15,9 +15,17 @@ var bot = new builder.UniversalBot(connector);
 var model = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/4ead4131-317c-4057-982f-96c268ae64a3?subscription-key=bc70d83510c24b22b86931c5e2b5424f&staging=true&verbose=true&timezoneOffset=0&q=';
 var recognizer = new builder.LuisRecognizer(model);
 var dialog = new builder.IntentDialog({ recognizers: [recognizer] });
+
+/*
 server.post('/api/messages', connector.listen());
+*/
+
+server.post('/api/messages', function (req, res, next) {
+	console.log(req.body);
+});
 
 bot.dialog('/', dialog);
+
 dialog.matches('TestIntent',[
 	function(session, args){
 		var intent = args.intent;
@@ -32,7 +40,11 @@ dialog.matches('Price',[
         session.dialogData.searchType = 'price';
 		session.send("Your price is " + price);
 	}]);
+
 dialog.matches('WaitingPeriod',[
-		function(session, args){
-			session.send("A newly created contract takes up to 30 days to become active");
-		}]);
+	function(session, args){
+		session.send("A newly created contract takes up to 30 days to become active");
+	}]);
+
+
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://svm-hackathon-bot-node.azurewebsites.net:3978/api/messages
