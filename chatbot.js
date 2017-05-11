@@ -2,7 +2,7 @@ var restify = require('restify');
 var builder = require('botbuilder');
 
 var server = restify.createServer();
-server.listen(process.env.port || process.env.PORT || 3978, function(){
+server.listen(process.env.port || process.env.PORT || 3000, function(){
 	console.log("%s listening to %s", server.name, server.url);
 });
 
@@ -16,13 +16,8 @@ var model = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/4ead4131-
 var recognizer = new builder.LuisRecognizer(model);
 var dialog = new builder.IntentDialog({ recognizers: [recognizer] });
 
-/*
-server.post('/api/messages', connector.listen());
-*/
 
-server.post('/api/messages', function (req, res, next) {
-	console.log(req.body);
-});
+server.post('/api/messages', connector.listen());
 
 bot.dialog('/', dialog);
 
