@@ -22,8 +22,7 @@ dialog.matches('TestIntent',[
 	function(session, args){
 		var intent = args.intent;
         var email = builder.EntityRecognizer.findEntity(args.entities, 'customer-email');
-        var a = args.entities[0].entity == 'email';
-		session.send("Your email is " + );
+		session.send("Your email is " + email);
 	}]);
 
 dialog.matches('Price',[
@@ -33,3 +32,7 @@ dialog.matches('Price',[
         session.dialogData.searchType = 'price';
 		session.send("Your price is " + price);
 	}]);
+dialog.matches('WaitingPeriod',[
+		function(session, args){
+			session.send("A newly created contract takes up to 30 days to become active");
+		}]);
