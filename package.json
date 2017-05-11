@@ -1,0 +1,23 @@
+{
+  "name": "chatbothackathon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "chatbot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LarryLemons34/chatbothackathon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LarryLemons34/chatbothackathon/issues"
+  },
+  "homepage": "https://github.com/LarryLemons34/chatbothackathon#readme",
+  "dependencies": {
+    "botbuilder": "^3.8.1",
+    "restify": "^4.3.0"
+  }
+}
