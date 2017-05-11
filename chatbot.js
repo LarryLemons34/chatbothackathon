@@ -45,6 +45,3 @@ dialog.matches('WaitingPeriod',[
 	function(session, args){
 		session.send("A newly created contract takes up to 30 days to become active");
 	}]);
-
-
-curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://svm-hackathon-bot-node.azurewebsites.net:3978/api/messages
